@@ -1,0 +1,9 @@
+canvas {
+    display: block;
+    margin: auto;
+}
+body {
+    padding-left: 25px;
+    background: url("https://procyber.me/wp-content/uploads/2021/08/les.jpg") no-repeat;
+    background-size: 2000px;
+}
