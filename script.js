@@ -4,7 +4,7 @@ let box = 32;
 let score = 0;
 let highScore= sessionStorage.getItem('high-score');
 let snake = [];
-let game, start;
+let game;
 let dir;
 let time = 200;
 
@@ -20,11 +20,18 @@ snakeHead.src = "img/pudge.jpg"
 const body = new Image();
 body.src = "img/body.jpg"
 
-const randomCoord = () => { return Math.floor(Math.random() * 15 + 3) * box };
+const randomCoord = () => {
+    return Math.floor(Math.random() * 15 + 3) * box
+};
 
 let food = {
   x: randomCoord(),
   y: randomCoord()
+};
+
+const foodCoord = (food) => {
+    food.x = randomCoord();
+    food.y = randomCoord();
 };
 
 snake[0] = {
@@ -49,13 +56,23 @@ const gameOver = (head, arr) => {
     for (let i = 0; i < snake.length; i++){
         if (head.x === arr[i].x && head.y === arr[i].y) return true;
     }
-}
+};
 
 const handleGameOver = () => {
     clearInterval(game);
     alert('Game Over! Press OK to try again...');
     location.reload();
 };
+
+const validation = (food, snake) => {
+    for (let i = 0; i < snake.length; i++){
+        if (food.x === snake[i].x || food.y === snake[i].y) {
+            foodCoord(food);
+            validation(food, snake);
+        }
+    }
+}
+
 function initGame() {
     space.drawImage(ground, 0, 0);
     space.drawImage(foodImage, food.x, food.y);
@@ -81,10 +98,8 @@ function initGame() {
         time -= 5;
         clearInterval(game);
         game = setInterval(initGame, time);
-        food = {
-            x: Math.floor(Math.random() * 17 + 1) * box,
-            y: Math.floor(Math.random() * 15 + 3) * box
-        };
+        foodCoord(food);
+        validation(food, snake);
     } else snake.pop();
 
     if(snakeX < box || snakeX > box * 17 || snakeY < 3 * box || snakeY > box * 17) handleGameOver();
