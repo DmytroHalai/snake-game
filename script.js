@@ -2,7 +2,7 @@ const canvas = document.getElementById("game");
 const space = canvas.getContext("2d");
 let box = 32;
 let score = 0;
-let highScore= 0
+let highScore= sessionStorage.getItem('high-score');
 let snake = [];
 let game;
 let dir;
@@ -65,8 +65,10 @@ function initGame() {
     }
     space.fillStyle = "white";
     space.font = "25px Comic Sans MS";
+
     space.fillText(`Score: ${score}`, box * 2.4, box * 1.5);
-    localStorage.setItem('high-score', highScore = score > highScore ? score : highScore);
+
+    sessionStorage.setItem('high-score', highScore = score > highScore ? score : highScore);
     space.fillText(`High Score: ${highScore}`, box * 13, box * 1.5)
 
     let snakeX = snake[0].x;
@@ -80,7 +82,6 @@ function initGame() {
         };
     } else snake.pop();
 
-    if(snakeX < box || snakeX > box * 17 || snakeY < 3 * box || snakeY > box * 17) handleGameOver();
 
     if (dir === "left") snakeX -= box;
     if (dir === "right") snakeX += box;
@@ -91,7 +92,9 @@ function initGame() {
         x: snakeX,
         y: snakeY
     };
-    if (gameOver(head, snake)) handleGameOver()
+
+    if(snakeX < box || snakeX > box * 17 || snakeY < 3 * box || snakeY > box * 17) handleGameOver();
+    if (gameOver(head, snake)) handleGameOver();
 
     snake.unshift(head);
 }
