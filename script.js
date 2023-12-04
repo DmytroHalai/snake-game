@@ -38,7 +38,10 @@ snake[0] = {
     x: 15 * box,
     y: 15 * box
 };
-
+const reload = () => {
+    clearInterval(game);
+    location.reload();
+}
 document.addEventListener("keydown", direction);
 
 function direction(event){
@@ -60,8 +63,7 @@ const gameOver = (head, arr) => {
 
 const handleGameOver = () => {
     clearInterval(game);
-    alert('Game Over! Press OK to try again...');
-    location.reload();
+    alert(`  You have losed😢\n  Try again😊\n  Your best score is ${highScore}!`)
 };
 
 const validation = (food, snake) => {

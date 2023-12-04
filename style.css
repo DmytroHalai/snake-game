@@ -4,6 +4,9 @@ canvas {
     -webkit-box-shadow: 0 0 86px 52px rgba(74,140,84,0.62);
     -moz-box-shadow: 0 0 86px 52px rgba(74,140,84,0.62);
     box-shadow: 0 0 86px 52px rgba(74,140,84,0.62);
+    position: fixed;
+    top: 40px;
+    right: 615px;
 }
 
 body {
@@ -53,4 +56,20 @@ body {
     text-align: center;
     margin-top: 35px;
     font-family: "Comic Sans MS", serif;
+}
+
+.button {
+    width: 300px;
+    height: 90px;
+    border-radius: 70px;
+    background: #316e31;
+    font-size: 42px;
+    color: white;
+    position: fixed;
+    font-family: "Comic Sans MS", serif;
+    top: 40px;
+    right: 100px;
+    -webkit-box-shadow: 3px 0 123px 70px rgba(33,92,42,0.72);
+    -moz-box-shadow: 3px 0 123px 70px rgba(33,92,42,0.72);
+    box-shadow: 3px 0 123px 70px rgba(33,92,42,0.72);
 }
