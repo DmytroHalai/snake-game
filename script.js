@@ -78,7 +78,7 @@ function initGame() {
 
     if(snakeX === food.x && snakeY === food.y){
         score++;
-        time -= 10;
+        time -= 5;
         clearInterval(game);
         game = setInterval(initGame, time);
         food = {
@@ -104,8 +104,4 @@ function initGame() {
     snake.unshift(head);
 }
 
-// function introduction(){
-//     alert("Hello! Press ENTER to start the Game")
-// }
-// start =
 game = setInterval(initGame, time);

@@ -1,9 +1,56 @@
 canvas {
     display: block;
     margin: auto;
+    -webkit-box-shadow: 0px 0px 86px 52px rgba(74,140,84,0.62);
+    -moz-box-shadow: 0px 0px 86px 52px rgba(74,140,84,0.62);
+    box-shadow: 0px 0px 86px 52px rgba(74,140,84,0.62);
 }
+
 body {
     padding-left: 25px;
     background: url("https://procyber.me/wp-content/uploads/2021/08/les.jpg") no-repeat;
     background-size: 2000px;
+}
+
+.divRules {
+    width: 530px;
+    height: 320px;
+    background: #317931;
+    position: absolute;
+    top: 30px;
+    border-radius: 320px;
+    flex-direction: column;
+
+}
+
+.rules {
+    width: 130px;
+    height: 70px;
+    border-radius: 70px;
+    background: #234d23;
+    font-size: 42px;
+    color: white;
+    font-family: "Comic Sans MS", serif;
+    text-align: center;
+    position: relative;
+    left: 200px;
+    -webkit-box-shadow: 3px 0 123px 70px rgba(33,92,42,0.72);
+    -moz-box-shadow: 3px 0 123px 70px rgba(33,92,42,0.72);
+    box-shadow: 3px 0 123px 70px rgba(33,92,42,0.72);
+}
+
+.intro1 {
+    font-size: 32px;
+    color: white;
+    text-align: center;
+    margin-top: 35px;
+    font-family: "Comic Sans MS", serif;
+}
+
+.intro2 {
+    font-size: 22px;
+    color: white;
+    text-align: center;
+    margin-top: 35px;
+    font-family: "Comic Sans MS", serif;
 }
