@@ -74,6 +74,7 @@ function initGame() {
     let snakeX = snake[0].x;
     let snakeY = snake[0].y;
 
+
     if(snakeX === food.x && snakeY === food.y){
         score++;
         food = {
@@ -82,6 +83,7 @@ function initGame() {
         };
     } else snake.pop();
 
+    if(snakeX < box || snakeX > box * 17 || snakeY < 3 * box || snakeY > box * 17) handleGameOver();
 
     if (dir === "left") snakeX -= box;
     if (dir === "right") snakeX += box;
@@ -93,10 +95,10 @@ function initGame() {
         y: snakeY
     };
 
-    if(snakeX < box || snakeX > box * 17 || snakeY < 3 * box || snakeY > box * 17) handleGameOver();
     if (gameOver(head, snake)) handleGameOver();
 
     snake.unshift(head);
+
 }
 
 game = setInterval(initGame, 100);
