@@ -4,8 +4,9 @@ let box = 32;
 let score = 0;
 let highScore= sessionStorage.getItem('high-score');
 let snake = [];
-let game;
+let game, start;
 let dir;
+let time = 200;
 
 const ground = new Image();
 ground.src = "img/ground.png";
@@ -77,6 +78,9 @@ function initGame() {
 
     if(snakeX === food.x && snakeY === food.y){
         score++;
+        time -= 10;
+        clearInterval(game);
+        game = setInterval(initGame, time);
         food = {
             x: Math.floor(Math.random() * 17 + 1) * box,
             y: Math.floor(Math.random() * 15 + 3) * box
@@ -98,7 +102,10 @@ function initGame() {
     if (gameOver(head, snake)) handleGameOver();
 
     snake.unshift(head);
-
 }
 
-game = setInterval(initGame, 100);
+// function introduction(){
+//     alert("Hello! Press ENTER to start the Game")
+// }
+// start =
+game = setInterval(initGame, time);
