@@ -167,4 +167,4 @@ function initGame() {
     snake.unshift(head);
 }
 
-game = setInterval(initGame, timeCheck);
+game = setInterval(initGame, time);
