@@ -1,12 +1,21 @@
 const canvas = document.getElementById("game");
 const space = canvas.getContext("2d");
-let box = 32;
+const box = 32;
 let score = 0;
 let highScore= sessionStorage.getItem('high-score');
 let snake = [];
 let game;
 let dir;
 let time = 200;
+const snakeSpan = 15 * box;
+const scoreCord = {
+    x: box * 2.4,
+    y: box * 1.5
+}
+const highScoreCord = {
+    x: box * 13,
+    y: box * 1.5
+}
 
 const ground = new Image();
 ground.src = "img/ground.png";
@@ -20,41 +29,46 @@ snakeHead.src = "img/pudge.jpg"
 const body = new Image();
 body.src = "img/body.jpg"
 
-const randomCoord = () => {
+const randomCord = () => {
     return Math.floor(Math.random() * 15 + 3) * box
 };
 
 let food = {
-  x: randomCoord(),
-  y: randomCoord()
+  x: randomCord(),
+  y: randomCord()
 };
 
-const foodCoord = (food) => {
-    food.x = randomCoord();
-    food.y = randomCoord();
+const foodCord = (food) => {
+    food.x = randomCord();
+    food.y = randomCord();
 };
 
 snake[0] = {
-    x: 15 * box,
-    y: 15 * box
+    x: snakeSpan,
+    y: snakeSpan
 };
 const reload = () => {
     clearInterval(game);
     location.reload();
 }
-document.addEventListener("keydown", direction);
-
-function direction(event){
+document.addEventListener("keydown", function (event){
     if (event.keyCode === 37 && dir !== "right"){
         dir = "left"
     } else if (event.keyCode === 38 && dir !== "down"){
         dir = "up"
     } else if (event.keyCode === 39 && dir !== "left"){
-    dir = "right"
+        dir = "right"
     } else if (event.keyCode === 40 && dir !== "up"){
-    dir = "down"
+        dir = "down"
     }
-}
+});
+document.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        reload();
+    }
+});
+
+
 const gameOver = (head, arr) => {
     for (let i = 0; i < snake.length; i++){
         if (head.x === arr[i].x && head.y === arr[i].y) return true;
@@ -63,13 +77,13 @@ const gameOver = (head, arr) => {
 
 const handleGameOver = () => {
     clearInterval(game);
-    alert(`  You have losed😢\n  Try again😊\n  Your best score is ${highScore}!`)
+    alert(`  You have lost😢\n  Try again😊\n  Your best score is ${highScore}!`)
 };
 
 const validation = (food, snake) => {
     for (let i = 0; i < snake.length; i++){
         if (food.x === snake[i].x || food.y === snake[i].y) {
-            foodCoord(food);
+            foodCord(food);
             validation(food, snake);
         }
     }
@@ -86,10 +100,10 @@ function initGame() {
     space.fillStyle = "white";
     space.font = "25px Comic Sans MS";
 
-    space.fillText(`Score: ${score}`, box * 2.4, box * 1.5);
+    space.fillText(`Score: ${score}`, scoreCord.x, scoreCord.y);
 
     sessionStorage.setItem('high-score', highScore = score > highScore ? score : highScore);
-    space.fillText(`High Score: ${highScore}`, box * 13, box * 1.5)
+    space.fillText(`High Score: ${highScore}`, highScoreCord.x, highScoreCord.y)
 
     let snakeX = snake[0].x;
     let snakeY = snake[0].y;
@@ -100,7 +114,7 @@ function initGame() {
         time -= 5;
         clearInterval(game);
         game = setInterval(initGame, time);
-        foodCoord(food);
+        foodCord(food);
         validation(food, snake);
     } else snake.pop();
 
