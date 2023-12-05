@@ -65,11 +65,51 @@ body {
     background: #316e31;
     font-size: 42px;
     color: white;
-    position: fixed;
     font-family: "Comic Sans MS", serif;
-    top: 40px;
-    right: 100px;
+    position: absolute;
+    top: 400px;
+    left: 140px;
+}
+.history {
+    width: 530px;
+    height: 530px;
+    background: #317931;
+    position: fixed;
+    top: 520px;
+    right: 10px;
+    border-radius: 120px;
+    flex-direction: column;
+}
+.h {
+    width: 230px;
+    height: 70px;
+    border-radius: 70px;
+    background: #234d23;
+    font-size: 32px;
+    color: white;
+    font-family: "Comic Sans MS", serif;
+    text-align: center;
+    position: fixed;
+    right: 150px;
+    margin-top: 20px;
     -webkit-box-shadow: 3px 0 123px 70px rgba(33,92,42,0.72);
     -moz-box-shadow: 3px 0 123px 70px rgba(33,92,42,0.72);
     box-shadow: 3px 0 123px 70px rgba(33,92,42,0.72);
+}
+.title {
+    margin-top: auto;
+}
+.historyInfo {
+    background: #234d23;
+    font-size: 12px;
+    color: white;
+    font-family: "Comic Sans MS", serif;
+    text-align: center;
+    position: fixed;
+    right: 33px;
+    margin-top: 120px;
+    width: 480px;
+    height: 530px;
+    border-radius: 70px;
+    flex-direction: column;
 }
