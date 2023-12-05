@@ -127,6 +127,7 @@ function initGame() {
     space.drawImage(ground, 0, 0);
     space.drawImage(foodImage, food.x, food.y);
     space.drawImage(snakeHead, snake[0].x, snake[0].y);
+    timeCheck(time);
 
     for (let i = 1; i < snake.length; i++){
         space.drawImage(body, snake[i].x, snake[i].y);
