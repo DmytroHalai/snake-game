@@ -5,6 +5,7 @@ let score = 0;
 let highScore= sessionStorage.getItem('high-score');
 let snake = [];
 let game;
+let historyText = document.getElementById("historyInfo");
 let dir;
 let time = 200;
 const snakeSpan = 15 * box;
@@ -68,6 +69,13 @@ document.addEventListener('keypress', function (e) {
     }
 });
 
+historyText.innerText = localStorage.getItem("historyText") || "No history yet";
+
+const history = () => {
+    const historyString = `Your last try: ${score}`;
+    historyText.innerText = historyString;
+    localStorage.setItem("historyText", historyString);
+};
 
 const gameOver = (head, arr) => {
     for (let i = 0; i < snake.length; i++){
@@ -76,6 +84,7 @@ const gameOver = (head, arr) => {
 };
 
 const handleGameOver = () => {
+    history();
     clearInterval(game);
     alert(`  You have lost😢\n  Try again😊\n  Your best score is ${highScore}!`);
     reload();

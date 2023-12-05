@@ -66,7 +66,7 @@ body {
 }
 .history {
     width: 530px;
-    height: 530px;
+    height: 330px;
     background: #317931;
     position: fixed;
     top: 520px;
@@ -75,16 +75,16 @@ body {
     flex-direction: column;
 }
 .h {
-    width: 230px;
+    width: 330px;
     height: 70px;
     border-radius: 70px;
     background: #234d23;
-    font-size: 32px;
+    font-size: 25px;
     color: white;
     font-family: "Comic Sans MS", serif;
     text-align: center;
     position: fixed;
-    right: 150px;
+    right: 115px;
     margin-top: 20px;
     -webkit-box-shadow: 3px 0 123px 70px rgba(33,92,42,0.72);
     -moz-box-shadow: 3px 0 123px 70px rgba(33,92,42,0.72);
@@ -95,15 +95,22 @@ body {
 }
 .historyInfo {
     background: #234d23;
-    font-size: 12px;
+    font-size: 32px;
     color: white;
     font-family: "Comic Sans MS", serif;
     text-align: center;
     position: fixed;
     right: 33px;
-    margin-top: 120px;
+    margin-top: 140px;
     width: 480px;
-    height: 530px;
+    height: 150px;
     border-radius: 70px;
     flex-direction: column;
+}
+
+.text {
+    position: fixed;
+    text-align: center;
+    margin-top: 50px;
+    right: 145px;
 }
