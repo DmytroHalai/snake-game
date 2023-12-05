@@ -120,7 +120,7 @@ const validation = (food, snake) => {
 };
 
 const timeCheck = (num) => {
-    sessionStorage.setItem('time', time = time < 10 ? 100 : num);
+    sessionStorage.setItem('time', time = time === undefined || time === null ? 100 : num);
 }
 
 function initGame() {
