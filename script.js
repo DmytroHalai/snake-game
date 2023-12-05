@@ -51,7 +51,8 @@ const reload = () => {
     clearInterval(game);
     location.reload();
 }
-document.addEventListener("keydown", function (event){
+document.addEventListener("keydown", direction)
+function direction (event) {
     if (event.keyCode === 37 && dir !== "right"){
         dir = "left"
     } else if (event.keyCode === 38 && dir !== "down"){
@@ -61,7 +62,7 @@ document.addEventListener("keydown", function (event){
     } else if (event.keyCode === 40 && dir !== "up"){
         dir = "down"
     }
-});
+}
 document.addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
         reload();
@@ -77,7 +78,8 @@ const gameOver = (head, arr) => {
 
 const handleGameOver = () => {
     clearInterval(game);
-    alert(`  You have lost😢\n  Try again😊\n  Your best score is ${highScore}!`)
+    alert(`  You have lost😢\n  Try again😊\n  Your best score is ${highScore}!`);
+    reload();
 };
 
 const validation = (food, snake) => {
