@@ -16,16 +16,12 @@ const highScoreCord = {
     x: box * 13,
     y: box * 1.5
 }
-
 const ground = new Image();
 ground.src = "img/ground.png";
-
 const foodImage = new Image();
 foodImage.src = "img/dota.png";
-
 const snakeHead = new Image();
 snakeHead.src = "img/pudge.jpg"
-
 const body = new Image();
 body.src = "img/body.jpg"
 
@@ -47,10 +43,12 @@ snake[0] = {
     x: snakeSpan,
     y: snakeSpan
 };
+
 const reload = () => {
     clearInterval(game);
     location.reload();
-}
+};
+
 document.addEventListener("keydown", direction)
 function direction (event) {
     if (event.keyCode === 37 && dir !== "right"){
@@ -63,6 +61,7 @@ function direction (event) {
         dir = "down"
     }
 }
+
 document.addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
         reload();
@@ -89,7 +88,7 @@ const validation = (food, snake) => {
             validation(food, snake);
         }
     }
-}
+};
 
 function initGame() {
     space.drawImage(ground, 0, 0);
