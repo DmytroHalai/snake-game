@@ -1,9 +1,6 @@
 canvas {
     display: block;
     margin: 120px auto;
-    -webkit-box-shadow: 0 0 86px 52px rgba(74,140,84,0.62);
-    -moz-box-shadow: 0 0 86px 52px rgba(74,140,84,0.62);
-    box-shadow: 0 0 86px 52px rgba(74,140,84,0.62);
     position: fixed;
     top: 40px;
     right: 615px;
@@ -14,7 +11,7 @@ body {
     background-size: 2000px;
 }
 .divRules {
-    width: 530px;
+    width: 630px;
     height: 320px;
     background: #317931;
     position: absolute;
@@ -24,7 +21,7 @@ body {
 
 }
 .rules {
-    width: 130px;
+    width: 160px;
     height: 70px;
     border-radius: 70px;
     background: #234d23;
@@ -33,7 +30,7 @@ body {
     font-family: "Comic Sans MS", serif;
     text-align: center;
     position: relative;
-    left: 200px;
+    left: 230px;
     -webkit-box-shadow: 3px 0 123px 70px rgba(33,92,42,0.72);
     -moz-box-shadow: 3px 0 123px 70px rgba(33,92,42,0.72);
     box-shadow: 3px 0 123px 70px rgba(33,92,42,0.72);
@@ -62,7 +59,7 @@ body {
     font-family: "Comic Sans MS", serif;
     position: absolute;
     top: 400px;
-    left: 140px;
+    right: 130px;
 }
 .history {
     width: 530px;
@@ -113,4 +110,80 @@ body {
     text-align: center;
     margin-top: 50px;
     right: 145px;
+}
+
+.speeds {
+    width: 630px;
+    height: 320px;
+    background: #317931;
+    position: absolute;
+    top: 530px;
+    border-radius: 320px;
+    flex-direction: column;
+}
+
+.speedsTitle {
+    width: 330px;
+    height: 80px;
+    border-radius: 100px;
+    background: #234d23;
+    font-size: 32px;
+    color: white;
+    font-family: "Comic Sans MS", serif;
+    text-align: center;
+    position: relative;
+    left: 150px;
+    -webkit-box-shadow: 3px 0 123px 70px rgba(33,92,42,0.72);
+    -moz-box-shadow: 3px 0 123px 70px rgba(33,92,42,0.72);
+    box-shadow: 3px 0 123px 70px rgba(33,92,42,0.72);
+}
+
+
+
+.speed2 {
+    width: 160px;
+    height: 100px;
+    border-radius: 70px;
+    background: #234d23;
+    font-size: 22px;
+    color: white;
+    font-family: "Comic Sans MS", serif;
+    position: absolute;
+    top: 150px;
+    left: 30px;
+}
+
+.speed3 {
+    width: 160px;
+    height: 100px;
+    border-radius: 70px;
+    background: #234d23;
+    font-size: 22px;
+    color: white;
+    font-family: "Comic Sans MS", serif;
+    position: absolute;
+    top: 150px;
+    left: 230px;
+}
+
+.speed4 {
+    width: 160px;
+    height: 100px;
+    border-radius: 70px;
+    background: #234d23;
+    font-size: 22px;
+    color: white;
+    font-family: "Comic Sans MS", serif;
+    position: absolute;
+    top: 150px;
+    left: 430px;
+}
+
+.dota {
+    position: fixed;
+    width: 35px;
+    height: 35px;
+    left: 723px;
+    top: 179px;
+    z-index: 100;
 }

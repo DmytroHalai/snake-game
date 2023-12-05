@@ -7,16 +7,18 @@ let snake = [];
 let game;
 let historyText = document.getElementById("historyInfo");
 let dir;
-let time = 200;
+let time = sessionStorage.getItem('time');
 const snakeSpan = 15 * box;
 const scoreCord = {
     x: box * 2.4,
     y: box * 1.5
 }
+
 const highScoreCord = {
     x: box * 13,
     y: box * 1.5
 }
+
 const ground = new Image();
 ground.src = "img/ground.png";
 const foodImage = new Image();
@@ -49,6 +51,24 @@ const reload = () => {
     clearInterval(game);
     location.reload();
 };
+
+const lowSpeed = () => {
+    clearInterval(game);
+    timeCheck(200);
+    game = setInterval(initGame, time);
+}
+
+const highSpeed = () => {
+    clearInterval(game);
+    timeCheck(70);
+    game = setInterval(initGame, time);
+}
+
+const mediumSpeed = () => {
+    clearInterval(game);
+    timeCheck(100);
+    game = setInterval(initGame, time);
+}
 
 document.addEventListener("keydown", direction)
 function direction (event) {
@@ -99,6 +119,10 @@ const validation = (food, snake) => {
     }
 };
 
+const timeCheck = (num) => {
+    sessionStorage.setItem('time', time = time < 10 ? 100 : num);
+}
+
 function initGame() {
     space.drawImage(ground, 0, 0);
     space.drawImage(foodImage, food.x, food.y);
@@ -121,9 +145,6 @@ function initGame() {
 
     if(snakeX === food.x && snakeY === food.y){
         score++;
-        time -= 5;
-        clearInterval(game);
-        game = setInterval(initGame, time);
         foodCord(food);
         validation(food, snake);
     } else snake.pop();

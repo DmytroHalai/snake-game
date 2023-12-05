@@ -8,7 +8,18 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<img src="img/dota.png" alt="dota" class="dota">
 <button class="button" onclick="reload()">Try Again</button>
+<div class="speeds">
+    <div class="speedsTitle">
+        <h2>Speeds</h2>
+    </div>
+    <div class="speedButtons">
+        <button class="speed2" onclick="lowSpeed()">low</button>
+        <button class="speed3" onclick="mediumSpeed()">medium</button>
+        <button class="speed4" onclick="highSpeed()">high</button>
+    </div>
+</div>
 <div class="divRules">
     <div class="rules">
         <p>Rules</p>
@@ -24,7 +35,8 @@
         <b class="text" id="historyInfo"></b>
     </div>
 </div>
-<canvas id="game" width="608" height=608"></canvas>
+<canvas id="game" width="608" height=608">
+</canvas>
 <script src="script.js"></script>
 </body>
 </html>
