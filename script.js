@@ -89,12 +89,12 @@ document.addEventListener('keypress', function (e) {
     }
 });
 
-historyText.innerText = localStorage.getItem("historyText") || "No history yet";
+historyText.innerText = sessionStorage.getItem("historyText") || "No history yet";
 
 const history = () => {
     const historyString = `Your last try: ${score}`;
     historyText.innerText = historyString;
-    localStorage.setItem("historyText", historyString);
+    sessionStorage.setItem("historyText", historyString);
 };
 
 const gameOver = (head, arr) => {
@@ -137,7 +137,7 @@ function initGame() {
 
     space.fillText(`Score: ${score}`, scoreCord.x, scoreCord.y);
 
-    sessionStorage.setItem('high-score', highScore = score > highScore ? score : highScore);
+    sessionStorage.setItem('high-score', highScore = highScore === null ? score : score > highScore ? score : highScore);
     space.fillText(`High Score: ${highScore}`, highScoreCord.x, highScoreCord.y)
 
     let snakeX = snake[0].x;
