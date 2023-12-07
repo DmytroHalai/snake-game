@@ -187,3 +187,7 @@ body {
     top: 179px;
     z-index: 100;
 }
+
+.music {
+    visibility: hidden;
+}
