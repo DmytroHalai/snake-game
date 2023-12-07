@@ -7,8 +7,9 @@ let snake = [];
 let game;
 let historyText = document.getElementById("historyInfo");
 let dir;
-let time = sessionStorage.getItem('time');
+let time = sessionStorage.getItem('time') || 100;
 const snakeSpan = 15 * box;
+let music = document.getElementById("music");
 const audio = document.querySelector("#audio")
 const scoreCord = {
     x: box * 2.4,
@@ -125,6 +126,7 @@ const timeCheck = (num) => {
 }
 
 function initGame() {
+    music.volume = 0.1;
     space.drawImage(ground, 0, 0);
     space.drawImage(foodImage, food.x, food.y);
     space.drawImage(snakeHead, snake[0].x, snake[0].y);
