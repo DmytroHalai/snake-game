@@ -2,14 +2,14 @@ const canvas = document.getElementById("game");
 const space = canvas.getContext("2d");
 const box = 32;
 let score = 0;
-let highScore= sessionStorage.getItem('high-score');
+let highScore= localStorage.getItem('high-score');
 let snake = [];
 let game;
 let historyText = document.getElementById("historyInfo");
 let dir;
-let time = sessionStorage.getItem('time') || 100;
+let time = localStorage.getItem('time') || 100;
 const snakeSpan = 15 * box;
-let music = document.getElementById("music");
+let music = document.querySelector("#music");
 const audio = document.querySelector("#audio")
 const scoreCord = {
     x: box * 2.4,
@@ -53,6 +53,13 @@ const reload = () => {
     clearInterval(game);
     location.reload();
 };
+const played = () => {
+    music.play();
+};
+
+const paused = () => {
+    music.pause();
+};
 
 const lowSpeed = () => {
     clearInterval(game);
@@ -91,12 +98,12 @@ document.addEventListener('keypress', function (e) {
     }
 });
 
-historyText.innerText = sessionStorage.getItem("historyText") || "No history yet";
+historyText.innerText = localStorage.getItem("historyText") || "No history yet";
 
 const history = () => {
     const historyString = `Your last try: ${score}`;
     historyText.innerText = historyString;
-    sessionStorage.setItem("historyText", historyString);
+    localStorage.setItem("historyText", historyString);
 };
 
 const gameOver = (head, arr) => {
@@ -122,7 +129,7 @@ const validation = (food, snake) => {
 };
 
 const timeCheck = (num) => {
-    sessionStorage.setItem('time', time = time === null ? 100 : num);
+    localStorage.setItem('time', time = time === null ? 100 : num);
 }
 
 function initGame() {
@@ -140,7 +147,7 @@ function initGame() {
 
     space.fillText(`Score: ${score}`, scoreCord.x, scoreCord.y);
 
-    sessionStorage.setItem('high-score', highScore = highScore === null ? score : score > highScore ? score : highScore);
+    localStorage.setItem('high-score', highScore = highScore === null ? score : score > highScore ? score : highScore);
     space.fillText(`High Score: ${highScore}`, highScoreCord.x, highScoreCord.y)
 
     let snakeX = snake[0].x;
