@@ -9,6 +9,7 @@ let historyText = document.getElementById("historyInfo");
 let dir;
 let time = sessionStorage.getItem('time');
 const snakeSpan = 15 * box;
+const audio = document.querySelector("#audio")
 const scoreCord = {
     x: box * 2.4,
     y: box * 1.5
@@ -145,6 +146,7 @@ function initGame() {
 
 
     if(snakeX === food.x && snakeY === food.y){
+        audio.play();
         score++;
         foodCord(food);
         validation(food, snake);
