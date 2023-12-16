@@ -14,12 +14,12 @@ const audio = document.getElementById("audio");
 const scoreCord = {
     x: box * 2.4,
     y: box * 1.5
-}
+};
 
 const highScoreCord = {
     x: box * 13,
     y: box * 1.5
-}
+};
 
 const ground = new Image();
 ground.src = "img/ground.png";
@@ -53,6 +53,7 @@ const reload = () => {
     clearInterval(game);
     location.reload();
 };
+
 const played = () => {
     music.play();
 };
@@ -61,23 +62,17 @@ const paused = () => {
     music.pause();
 };
 
-const lowSpeed = () => {
+const speedChange = (num) => {
     clearInterval(game);
-    timeCheck(200);
+    timeCheck(num);
     game = setInterval(initGame, time);
 }
 
-const highSpeed = () => {
-    clearInterval(game);
-    timeCheck(70);
-    game = setInterval(initGame, time);
-}
+const lowSpeed = () => speedChange(200);
 
-const mediumSpeed = () => {
-    clearInterval(game);
-    timeCheck(100);
-    game = setInterval(initGame, time);
-}
+const highSpeed = () => speedChange(70);
+
+const mediumSpeed = () => speedChange(100);
 
 document.addEventListener("keydown", direction)
 function direction (event) {
@@ -130,7 +125,7 @@ const validation = (food, snake) => {
 
 const timeCheck = (num) => {
     localStorage.setItem('time', time = time === null ? 100 : num);
-}
+};
 
 function initGame() {
     music.volume = 0.1;
