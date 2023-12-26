@@ -8,6 +8,7 @@ let game;
 let historyText = document.getElementById("historyInfo");
 let dir;
 let time = localStorage.getItem('time');
+const randomPos = () => Math.random() * 15 + 3;
 const snakeSpan = 15 * box;
 let music = document.getElementById("music");
 const audio = document.getElementById("audio");
@@ -31,7 +32,7 @@ const body = new Image();
 body.src = "img/body.jpg"
 
 const randomCord = () => {
-    return Math.floor(Math.random() * 15 + 3) * box
+    return Math.floor(randomPos()) * box
 };
 
 let food = {
