@@ -7,7 +7,7 @@ let snake = [];
 let game;
 let historyText = document.getElementById("historyInfo");
 let dir;
-let time = localStorage.getItem('time') || 100;
+let time = localStorage.getItem('time');
 const snakeSpan = 15 * box;
 let music = document.getElementById("music");
 const audio = document.getElementById("audio");
@@ -64,7 +64,7 @@ const paused = () => {
 
 const speedChange = (num) => {
     clearInterval(game);
-    timeCheck(num);
+    timeManage(num);
     game = setInterval(initGame, time);
 }; // changes speed
 
@@ -123,9 +123,9 @@ const validation = (food, snake) => {
     }
 }; // checks if food cords are spawned not under snake's body
 
-const timeCheck = (num) => {
+const timeManage = (num) => {
     localStorage.setItem('time', time = time === null ? 100 : num);
-}; // checks time speed (needed only when the game starts at the first time)
+}; // checks time speed
 
 function initGame() {
     music.volume = 0.1;
@@ -133,7 +133,7 @@ function initGame() {
     space.drawImage(ground, 0, 0);
     space.drawImage(foodImage, food.x, food.y);
     space.drawImage(snakeHead, snake[0].x, snake[0].y);
-    timeCheck(time);
+    timeManage(time);
 
     for (let i = 1; i < snake.length; i++){
         space.drawImage(body, snake[i].x, snake[i].y);
@@ -148,7 +148,6 @@ function initGame() {
 
     let snakeX = snake[0].x;
     let snakeY = snake[0].y;
-
 
     if(snakeX === food.x && snakeY === food.y){
         audio.play();
