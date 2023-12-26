@@ -15,12 +15,12 @@ const audio = document.getElementById("audio");
 const scoreCord = {
     x: box * 2.4,
     y: box * 1.5
-};
+}; // coords for information about current Score
 
 const highScoreCord = {
     x: box * 13,
     y: box * 1.5
-};
+}; // coords for information about HighScore
 
 const ground = new Image();
 ground.src = "img/ground.png";
