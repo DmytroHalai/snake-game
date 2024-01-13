@@ -4,7 +4,6 @@ This is not a similar snake game, but Dota's one. It is the fattest hero ever se
 
 IT IS A LINK TO PLAY THIS GAME : https://snake-game-five-drab.vercel.app/
 
-THIS GAME IS CURRENTLY ALLOWED ONLY ON PC AND LAPTOPS :( 
 
-
-I'M WORKING ON OPTIMIZATION :)
+THE LINK TO THIS GAME VIDEO CODE : 
+https://drive.google.com/file/d/1AaM6DmdiQkXgkwUK-0HVXjSZQXysKTgd/view?usp=sharing
